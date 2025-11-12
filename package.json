@@ -9,10 +9,12 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "html-docx-js-typescript": "^0.1.5",
     "html2pdf.js": "^0.9.0",
     "next": "16.0.1",
     "react": "19.2.0",
-    "react-dom": "19.2.0"
+    "react-dom": "19.2.0",
+    "tesseract.js": "^6.0.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
