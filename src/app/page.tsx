@@ -1,7 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
+import React from "react";
 import { useRef } from "react";
+import UploadPDF from "./UploadPDF";
 
 export default function Home() {
   const inputRef = useRef<HTMLTextAreaElement>(null);
@@ -91,70 +93,73 @@ export default function Home() {
   };
 
   return (
-    <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
-      <h1>Gerador de PDF — Material de Inglês</h1>
+    <React.Fragment>
+      <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
+        <h1>Gerador de PDF — Material de Inglês</h1>
 
-      <textarea
-        ref={inputRef}
-        id="htmlInput"
-        placeholder="Cole aqui o HTML do material..."
-        style={{
-          width: "100%",
-          height: "300px",
-          padding: "10px",
-          fontFamily: "monospace",
-          borderRadius: "8px",
-          border: "1px solid #ccc",
-          resize: "vertical",
-          marginBottom: "20px",
-        }}
-      ></textarea>
-
-      <div style={{ display: "flex", gap: "10px", marginBottom: "20px" }}>
-        <button
-          onClick={savePdf}
+        <textarea
+          ref={inputRef}
+          id="htmlInput"
+          placeholder="Cole aqui o HTML do material..."
           style={{
-            flex: 1,
-            padding: "15px",
-            background: "#007bff",
-            color: "white",
-            border: "none",
+            width: "100%",
+            height: "300px",
+            padding: "10px",
+            fontFamily: "monospace",
             borderRadius: "8px",
-            fontSize: "16px",
-            cursor: "pointer",
+            border: "1px solid #ccc",
+            resize: "vertical",
+            marginBottom: "20px",
           }}
-        >
-          Gerar PDF
-        </button>
+        ></textarea>
 
-        <button
-          onClick={saveWord}
+        <div style={{ display: "flex", gap: "10px", marginBottom: "20px" }}>
+          <button
+            onClick={savePdf}
+            style={{
+              flex: 1,
+              padding: "15px",
+              background: "#007bff",
+              color: "white",
+              border: "none",
+              borderRadius: "8px",
+              fontSize: "16px",
+              cursor: "pointer",
+            }}
+          >
+            Gerar PDF
+          </button>
+
+          <button
+            onClick={saveWord}
+            style={{
+              flex: 1,
+              padding: "15px",
+              background: "#28a745",
+              color: "white",
+              border: "none",
+              borderRadius: "8px",
+              fontSize: "16px",
+              cursor: "pointer",
+            }}
+          >
+            Baixar Word
+          </button>
+        </div>
+
+        <div
+          ref={previewRef}
+          id="preview"
           style={{
-            flex: 1,
-            padding: "15px",
-            background: "#28a745",
-            color: "white",
-            border: "none",
+            background: "white",
+            padding: "20px",
+            marginTop: "30px",
             borderRadius: "8px",
-            fontSize: "16px",
-            cursor: "pointer",
+            boxShadow: "0 0 8px rgba(0,0,0,0.1)",
           }}
-        >
-          Baixar Word
-        </button>
+        ></div>
       </div>
-
-      <div
-        ref={previewRef}
-        id="preview"
-        style={{
-          background: "white",
-          padding: "20px",
-          marginTop: "30px",
-          borderRadius: "8px",
-          boxShadow: "0 0 8px rgba(0,0,0,0.1)",
-        }}
-      ></div>
-    </div>
+      <UploadPDF />
+    </React.Fragment>
   );
 }
